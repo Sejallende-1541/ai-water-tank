@@ -1,0 +1,172 @@
+/* ==========================================================================
+   AI Water Tank Monitoring System - custom dashboard styling
+   ========================================================================== */
+
+:root {
+    --wt-blue-dark: #0b3d63;
+    --wt-blue: #0f6db5;
+    --wt-blue-light: #4fb8f0;
+    --wt-cyan: #17c3d6;
+    --wt-green: #1fae64;
+    --wt-amber: #f5a623;
+    --wt-red: #e64545;
+    --wt-bg: #0e1a2b;
+    --wt-card-bg: #ffffff;
+    --wt-radius: 16px;
+}
+
+.gradio-container {
+    background: radial-gradient(circle at top left, #123a5e 0%, #0a1626 55%, #060d17 100%) !important;
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* ---------- Header -------------------------------------------------- */
+#wt-header {
+    background: linear-gradient(120deg, var(--wt-blue-dark) 0%, var(--wt-blue) 55%, var(--wt-cyan) 100%);
+    border-radius: var(--wt-radius);
+    padding: 28px 32px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    text-align: center;
+}
+#wt-header h1 {
+    color: #ffffff;
+    font-size: 2.1rem;
+    margin: 0 0 6px 0;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+#wt-header p {
+    color: #d6f0ff;
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+/* ---------- Generic card look ---------------------------------------- */
+.wt-card {
+    background: linear-gradient(160deg, #ffffff 0%, #f3f8fd 100%);
+    border-radius: var(--wt-radius);
+    padding: 18px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* Metric cards (used via HTML component) */
+.wt-metric {
+    border-radius: var(--wt-radius);
+    padding: 16px 18px;
+    color: white;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    min-height: 92px;
+}
+.wt-metric .label {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.wt-metric .value {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-top: 4px;
+}
+.wt-metric .sub {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+.wt-metric.level    { background: linear-gradient(135deg, #0f6db5, #17c3d6); }
+.wt-metric.consume  { background: linear-gradient(135deg, #6a3de8, #a24de8); }
+.wt-metric.inflow   { background: linear-gradient(135deg, #1fae64, #3fd98a); }
+.wt-metric.outflow  { background: linear-gradient(135deg, #e08a1f, #f5c542); }
+.wt-metric.pump     { background: linear-gradient(135deg, #0b3d63, #0f6db5); }
+.wt-metric.status-normal   { background: linear-gradient(135deg, #1fae64, #3fd98a); }
+.wt-metric.status-warning  { background: linear-gradient(135deg, #e08a1f, #f5c542); }
+.wt-metric.status-critical { background: linear-gradient(135deg, #c22b2b, #e64545); }
+
+/* ---------- Tank visual ------------------------------------------------ */
+.wt-tank-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 4px 0;
+}
+.wt-tank {
+    width: 130px;
+    height: 220px;
+    border: 4px solid #0b3d63;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    background: #eaf6ff;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.15);
+}
+.wt-tank-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #4fb8f0 0%, #0f6db5 100%);
+    transition: height 0.6s ease;
+}
+.wt-tank-label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #0b3d63;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+}
+
+/* ---------- Alert boxes ------------------------------------------------- */
+.wt-alert {
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 10px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    border-left: 6px solid transparent;
+}
+.wt-alert h4 { margin: 0 0 6px 0; font-size: 1.05rem; }
+.wt-alert ul { margin: 6px 0 0 18px; padding: 0; }
+.wt-alert.normal   { background: #e7f9ef; border-color: var(--wt-green); color: #0c5132; }
+.wt-alert.warning  { background: #fff6e0; border-color: var(--wt-amber); color: #7a4f00; }
+.wt-alert.critical { background: #fde8e8; border-color: var(--wt-red);  color: #7a1414; }
+.wt-alert.recommend{ background: #e8f2fd; border-color: var(--wt-blue); color: #0b3d63; }
+
+/* ---------- Agent status panel ------------------------------------------ */
+.wt-agent-panel {
+    background: linear-gradient(160deg, #0b1f33 0%, #0f2c47 100%);
+    border-radius: var(--wt-radius);
+    padding: 18px 20px;
+    color: #eaf6ff;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.wt-agent-panel .agent-active {
+    display: inline-block;
+    background: #1fae64;
+    color: white;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Section headings -------------------------------------------- */
+.wt-section-title {
+    color: #eaf6ff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 6px 0 8px 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
