@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💧 AI Agent for Water Tank Monitoring System
 
 **An Agentic AI-Based Intelligent Water Management and Monitoring System**
@@ -180,3 +181,6 @@ your browser.
 - The application does **not** require any paid API to demonstrate its
   core functionality — the Decision Agent is rule-based by design.
 - All sensor data shown is **simulated** for demonstration purposes.
+=======
+# ai-water-tank
+>>>>>>> d635218b7cd66a186c53f6dfe15f922ea8655c11
